@@ -1,0 +1,815 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/GoogleChrome/accessibility-developer-tools">accessibility-developer-tools (v2.12.0)</a>
+</h1>
+<h4>This is a library of accessibility-related testing and utility code.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.accessibility-developer-tools">module accessibility-developer-tools</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditConfiguration
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditResults
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">accessibility-developer-tools.</span>Audit</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditConfiguration.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditResults.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.accessibility-developer-tools.Audit">module accessibility-developer-tools.Audit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.Audit.accessibilityErrorMessage">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>accessibilityErrorMessage
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.Audit.auditResults">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>auditResults
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.Audit.createReport">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>createReport
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.Audit.run">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>run
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.accessibility-developer-tools.AuditConfiguration">module accessibility-developer-tools.AuditConfiguration</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.AuditConfiguration">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditConfiguration
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.accessibility-developer-tools.AuditConfiguration.prototype">module accessibility-developer-tools.AuditConfiguration.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getIgnoreSelectors">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>getIgnoreSelectors
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getRuleConfig">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>getRuleConfig
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getSeverity">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>getSeverity
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.ignoreSelectors">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>ignoreSelectors
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.setRuleConfig">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>setRuleConfig
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.setSeverity">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>setSeverity
+            <span class="apidocSignatureSpan">(a, b)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.accessibility-developer-tools.AuditResults">module accessibility-developer-tools.AuditResults</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.AuditResults">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditResults
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.accessibility-developer-tools.AuditResults.prototype">module accessibility-developer-tools.AuditResults.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.addError">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>addError
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.addWarning">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>addWarning
+            <span class="apidocSignatureSpan">(a)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.getErrors">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>getErrors
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.getWarnings">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>getWarnings
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.numErrors">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>numErrors
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.numWarnings">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>numWarnings
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.toString">
+            function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.accessibility-developer-tools" id="apidoc.module.accessibility-developer-tools">module accessibility-developer-tools</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration" id="apidoc.element.accessibility-developer-tools.AuditConfiguration">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditConfiguration
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuditConfiguration = function (a) {
+  null == a &amp;&amp; (a = {});
+  this.rules_ = {};
+  this.maxResults = this.auditRulesToIgnore = this.auditRulesToRun = this.scope = null;
+  this.withConsoleApi = !1;
+  this.showUnsupportedRulesWarning = this.walkDom = !0;
+  for (var b in this) {
+    this.hasOwnProperty(b) &amp;&amp; b in a &amp;&amp; (this[b] = a[b]);
+  }
+  goog.exportProperty(this, "scope", this.scope);
+  goog.exportProperty(this, "auditRulesToRun", this.auditRulesToRun);
+  goog.exportProperty(this, "auditRulesToIgnore", this.auditRulesToIgnore);
+  goog.exportProperty(this, "withConsoleApi", this.withConsoleApi);
+  goog.exportProperty(this, "walkDom", this.walkDom);
+  goog.exportProperty(this, "showUnsupportedRulesWarning", this.showUnsupportedRulesWarning);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+For example, say you have a separate high-contrast version of your page, and there is a CSS rule which causes certain elements (
+with class `pretty`) on the page to be low-contrast for stylistic reasons. Running the audit unmodified produces results something
+ like
+
+    Warning: lowContrastElements (AX_COLOR_01) failed on the following elements (1 - 5 of 15):
+    ...
+
+You can modify the audit to ignore the elements which are known and intended to have low contrast like this:
+
+    var configuration = new axs.<span class="apidocCodeKeywordSpan">AuditConfiguration</span>();
+    configuration.ignoreSelectors('lowContrastElements', '.pretty');
+    axs.Audit.run(configuration);
+
+The `AuditConfiguration.ignoreSelectors()` method takes a rule name, which you can find in the audit report, and a query selector
+ string representing the parts of the page to be ignored for that audit rule. Multiple calls to `ignoreSelectors()` can be made
+for each audit rule, if multiple selectors need to be ignored.
+
+#### Restrict the scope of the entire audit to a subsection of the page
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults" id="apidoc.element.accessibility-developer-tools.AuditResults">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditResults
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuditResults = function () {
+  this.errors_ = [];
+  this.warnings_ = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.accessibility-developer-tools.Audit" id="apidoc.module.accessibility-developer-tools.Audit">module accessibility-developer-tools.Audit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.Audit.accessibilityErrorMessage" id="apidoc.element.accessibility-developer-tools.Audit.accessibilityErrorMessage">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>accessibilityErrorMessage
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">accessibilityErrorMessage = function (a) {
+  for (var b = a.rule.severity == axs.constants.Severity.SEVERE ? "Error: " : "Warning: ", b = b + (a.rule.code + " (" + a.rule.
+heading + ") failed on the following " + (1 == a.elements.length ? "element" : "elements")), b = 1 == a.elements.length ? b + ":" :
+b + (" (1 - " + Math.min(5, a.elements.length) + " of " + a.elements.length + "):"), c = Math.min(a.elements.length, 5), d = 0;d
+ &lt; c;d++) {
+    var e = a.elements[d], b = b + "\n";
+    try {
+      b += axs.utils.getQuerySelectorText(e);
+    } catch (f) {
+      b += " tagName:" + e.tagName, b += " id:" + e.id;
+    }
+  }
+  "" != a.rule.url &amp;&amp; (b += "\nSee " + a.rule.url + " for more information.");
+  return b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.Audit.auditResults" id="apidoc.element.accessibility-developer-tools.Audit.auditResults">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>auditResults
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">auditResults = function (a) {
+  for (var b = new axs.AuditResults, c = 0;c &lt; a.length;c++) {
+    var d = a[c];
+    d.result == axs.constants.AuditResult.FAIL &amp;&amp; (d.rule.severity == axs.constants.Severity.SEVERE ? b.addError(axs.Audit.accessibilityErrorMessage
+(d)) : b.addWarning(axs.Audit.accessibilityErrorMessage(d)));
+  }
+  return b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.Audit.createReport" id="apidoc.element.accessibility-developer-tools.Audit.createReport">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>createReport
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createReport = function (a, b) {
+  var c;
+  c = "*** Begin accessibility audit results ***\nAn accessibility audit found " + axs.Audit.auditResults(a).toString();
+  b &amp;&amp; (c = c + "\nFor more information, please see " + b);
+  return c + "\n*** End accessibility audit results ***";
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The runner will load the specified file or URL in a headless browser, inject axs_testing.js, run the audit and output the report
+ text.
+
+### Run audit from Selenium WebDriver (Scala):
+val driver = org.openqa.selenium.firefox.FirefoxDriver //use driver of your choice
+val jse = driver.asInstanceOf[JavascriptExecutor]
+jse.executeScript(scala.io.Source.fromURL("https://raw.githubusercontent.com/GoogleChrome/" +
+  "accessibility-developer-tools/stable/dist/js/axs_testing.js").mkString)
+val report = jse.executeScript("var results = axs.Audit.run();return axs.Audit.<span class="apidocCodeKeywordSpan">createReport
+</span>(results);")
+println(report)
+
+### Run audit from Selenium WebDriver (Scala)(with caching):
+val cache = collection.mutable.Map[String, String]()
+val driver = org.openqa.selenium.firefox.FirefoxDriver //use driver of your choice
+val jse = driver.asInstanceOf[JavascriptExecutor]
+def getUrlSource(arg: String): String = cache get arg match {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.Audit.run" id="apidoc.element.accessibility-developer-tools.Audit.run">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.Audit.</span>run
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function (a) {
+  a = a || new axs.AuditConfiguration;
+  if (!axs.Audit.unsupportedRulesWarningShown &amp;&amp; a.showUnsupportedRulesWarning) {
+    var b = axs.Audit.getRulesCannotRun(a);
+    0 &lt; b.length &amp;&amp; (console.warn("Some rules cannot be checked using the axs.Audit.run() method call. Use the Chrome plugin to
+check these rules: " + b.join(", ")), console.warn("To remove this message, pass an AuditConfiguration object to axs.Audit.run()
+and set configuration.showUnsupportedRulesWarning = false."));
+    axs.Audit.unsupportedRulesWarningShown = !0;
+  }
+  b = axs.AuditRules.getActiveRules(a);
+  a.collectIdRefs = b.some(function(a) {
+    return a.collectIdRefs;
+  });
+  a.scope || (a.scope = document.documentElement);
+  axs.Audit.collectMatchingElements(a, b);
+  for (var c = [], d = 0;d &lt; b.length;d++) {
+    var e = b[d];
+    e.canRun(a) &amp;&amp; c.push(e.run(a));
+  }
+  return c;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The simplest option is to include the generated `axs_testing.js` library on your page. After you build, you will have two versions
+ of `axs_testings.js`:
+* Distribution Build: project-root/dist/js/axs_testing.js
+* Local Build (use if you make changes): project-root/tmp/build/axs_testing.js
+
+Work is underway to include the library in WebDriver and other automated testing frameworks.
+
+## The `axs.Audit.<span class="apidocCodeKeywordSpan">run</span>()` method
+
+Once you have included `axs_testing.js`, you can call `axs.Audit.run()`. This returns an object in the following form:
+
+{
+  /** @type {axs.constants.AuditResult} */
+  result,  // one of PASS, FAIL or NA
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.accessibility-developer-tools.AuditConfiguration" id="apidoc.module.accessibility-developer-tools.AuditConfiguration">module accessibility-developer-tools.AuditConfiguration</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.AuditConfiguration" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.AuditConfiguration">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditConfiguration
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuditConfiguration = function (a) {
+  null == a &amp;&amp; (a = {});
+  this.rules_ = {};
+  this.maxResults = this.auditRulesToIgnore = this.auditRulesToRun = this.scope = null;
+  this.withConsoleApi = !1;
+  this.showUnsupportedRulesWarning = this.walkDom = !0;
+  for (var b in this) {
+    this.hasOwnProperty(b) &amp;&amp; b in a &amp;&amp; (this[b] = a[b]);
+  }
+  goog.exportProperty(this, "scope", this.scope);
+  goog.exportProperty(this, "auditRulesToRun", this.auditRulesToRun);
+  goog.exportProperty(this, "auditRulesToIgnore", this.auditRulesToIgnore);
+  goog.exportProperty(this, "withConsoleApi", this.withConsoleApi);
+  goog.exportProperty(this, "walkDom", this.walkDom);
+  goog.exportProperty(this, "showUnsupportedRulesWarning", this.showUnsupportedRulesWarning);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+For example, say you have a separate high-contrast version of your page, and there is a CSS rule which causes certain elements (
+with class `pretty`) on the page to be low-contrast for stylistic reasons. Running the audit unmodified produces results something
+ like
+
+    Warning: lowContrastElements (AX_COLOR_01) failed on the following elements (1 - 5 of 15):
+    ...
+
+You can modify the audit to ignore the elements which are known and intended to have low contrast like this:
+
+    var configuration = new axs.<span class="apidocCodeKeywordSpan">AuditConfiguration</span>();
+    configuration.ignoreSelectors('lowContrastElements', '.pretty');
+    axs.Audit.run(configuration);
+
+The `AuditConfiguration.ignoreSelectors()` method takes a rule name, which you can find in the audit report, and a query selector
+ string representing the parts of the page to be ignored for that audit rule. Multiple calls to `ignoreSelectors()` can be made
+for each audit rule, if multiple selectors need to be ignored.
+
+#### Restrict the scope of the entire audit to a subsection of the page
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.accessibility-developer-tools.AuditConfiguration.prototype" id="apidoc.module.accessibility-developer-tools.AuditConfiguration.prototype">module accessibility-developer-tools.AuditConfiguration.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getIgnoreSelectors" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getIgnoreSelectors">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>getIgnoreSelectors
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getIgnoreSelectors = function (a) {
+  return a in this.rules_ &amp;&amp; "ignore" in this.rules_[a] ? this.rules_[a].ignore : [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getRuleConfig" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getRuleConfig">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>getRuleConfig
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRuleConfig = function (a) {
+  return a in this.rules_ &amp;&amp; "config" in this.rules_[a] ? this.rules_[a].config : null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getSeverity" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.getSeverity">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>getSeverity
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSeverity = function (a) {
+  return a in this.rules_ &amp;&amp; "severity" in this.rules_[a] ? this.rules_[a].severity : null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.ignoreSelectors" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.ignoreSelectors">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>ignoreSelectors
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ignoreSelectors = function (a, b) {
+  a in this.rules_ || (this.rules_[a] = {});
+  "ignore" in this.rules_[a] || (this.rules_[a].ignore = []);
+  Array.prototype.push.call(this.rules_[a].ignore, b);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    Warning: lowContrastElements (AX_COLOR_01) failed on the following elements (1 - 5 of 15):
+    ...
+
+You can modify the audit to ignore the elements which are known and intended to have low contrast like this:
+
+    var configuration = new axs.AuditConfiguration();
+    configuration.<span class="apidocCodeKeywordSpan">ignoreSelectors</span>('lowContrastElements', '.pretty'
+;);
+    axs.Audit.run(configuration);
+
+The `AuditConfiguration.ignoreSelectors()` method takes a rule name, which you can find in the audit report, and a query selector
+ string representing the parts of the page to be ignored for that audit rule. Multiple calls to `ignoreSelectors()` can be made
+for each audit rule, if multiple selectors need to be ignored.
+
+#### Restrict the scope of the entire audit to a subsection of the page
+
+You may have a part of the page which varies while other parts of the page stay constant, like a content area vs. a toolbar. In
+this case, running the audit on the entire page may give you spurious results in the part of the page which doesn't vary, which
+ may drown out regressions in the main part of the page.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.setRuleConfig" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.setRuleConfig">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>setRuleConfig
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setRuleConfig = function (a, b) {
+  a in this.rules_ || (this.rules_[a] = {});
+  this.rules_[a].config = b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.setSeverity" id="apidoc.element.accessibility-developer-tools.AuditConfiguration.prototype.setSeverity">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditConfiguration.prototype.</span>setSeverity
+        <span class="apidocSignatureSpan">(a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setSeverity = function (a, b) {
+  a in this.rules_ || (this.rules_[a] = {});
+  this.rules_[a].severity = b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.accessibility-developer-tools.AuditResults" id="apidoc.module.accessibility-developer-tools.AuditResults">module accessibility-developer-tools.AuditResults</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.AuditResults" id="apidoc.element.accessibility-developer-tools.AuditResults.AuditResults">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.</span>AuditResults
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuditResults = function () {
+  this.errors_ = [];
+  this.warnings_ = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.accessibility-developer-tools.AuditResults.prototype" id="apidoc.module.accessibility-developer-tools.AuditResults.prototype">module accessibility-developer-tools.AuditResults.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.addError" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.addError">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>addError
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addError = function (a) {
+  "" != a &amp;&amp; this.errors_.push(a);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.addWarning" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.addWarning">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>addWarning
+        <span class="apidocSignatureSpan">(a)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addWarning = function (a) {
+  "" != a &amp;&amp; this.warnings_.push(a);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.getErrors" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.getErrors">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>getErrors
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getErrors = function () {
+  return this.errors_;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.getWarnings" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.getWarnings">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>getWarnings
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getWarnings = function () {
+  return this.warnings_;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.numErrors" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.numErrors">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>numErrors
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">numErrors = function () {
+  return this.errors_.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.numWarnings" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.numWarnings">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>numWarnings
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">numWarnings = function () {
+  return this.warnings_.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.accessibility-developer-tools.AuditResults.prototype.toString" id="apidoc.element.accessibility-developer-tools.AuditResults.prototype.toString">
+        function <span class="apidocSignatureSpan">accessibility-developer-tools.AuditResults.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  for (var a = "", b = 0;b &lt; this.errors_.length;b++) {
+    0 == b &amp;&amp; (a += "\nErrors:\n");
+    var c = this.errors_[b], a = a + (c + "\n\n");
+  }
+  for (b = 0;b &lt; this.warnings_.length;b++) {
+    0 == b &amp;&amp; (a += "\nWarnings:\n"), c = this.warnings_[b], a += c + "\n\n";
+  }
+  return a;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>

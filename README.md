@@ -1,6 +1,6 @@
 # npmdoc-accessibility-developer-tools
 
-#### api documentation for  [accessibility-developer-tools (v2.12.0)](https://github.com/GoogleChrome/accessibility-developer-tools)  [![npm package](https://img.shields.io/npm/v/npmdoc-accessibility-developer-tools.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-accessibility-developer-tools) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools.svg)](https://travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools)
+#### basic api documentation for  [accessibility-developer-tools (v2.12.0)](https://github.com/GoogleChrome/accessibility-developer-tools)  [![npm package](https://img.shields.io/npm/v/npmdoc-accessibility-developer-tools.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-accessibility-developer-tools) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools.svg)](https://travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools)
 
 #### This is a library of accessibility-related testing and utility code.
 

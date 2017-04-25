@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "#### api documentation for  [accessibility-developer-tools (v2.12.0)](https://github.com/GoogleChrome/accessibility-developer-tools)  [![npm package](https://img.shields.io/npm/v/npmdoc-accessibility-developer-tools.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-accessibility-developer-tools) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools.svg)](https://travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools)",
+    "description": "#### basic api documentation for  [accessibility-developer-tools (v2.12.0)](https://github.com/GoogleChrome/accessibility-developer-tools)  [![npm package](https://img.shields.io/npm/v/npmdoc-accessibility-developer-tools.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-accessibility-developer-tools) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools.svg)](https://travis-ci.org/npmdoc/node-npmdoc-accessibility-developer-tools)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"

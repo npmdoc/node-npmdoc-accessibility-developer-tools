@@ -354,7 +354,23 @@ for each audit rule, if multiple selectors need to be ignored.
   this.errors_ = [];
   this.warnings_ = [];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Create an AuditResults object citing failures and warnings, for use in
+ * continuous builds.
+ * @param {Array.&#x3c;Object&#x3e;} results The results returned from the audit run.
+ * @return  {axs.AuditResults} a report of the audit results.
+ */
+axs.Audit.auditResults = function(results) {
+    var auditResults = new axs.<span class="apidocCodeKeywordSpan">AuditResults</span>();
+    for (var i = 0; i &#x3c; results.length; i++) {
+var result = results[i];
+if (result.result != axs.constants.AuditResult.FAIL)
+    continue;
+
+if (result.rule.severity == axs.constants.Severity.SEVERE) {
+    auditResults.addError(
+...</pre></li>
     </ul>
 
 
@@ -392,7 +408,24 @@ b + (&#x22; (1 - &#x22; + Math.min(5, a.elements.length) + &#x22; of &#x22; + a.
   &#x22;&#x22; != a.rule.url &#x26;&#x26; (b += &#x22;\nSee &#x22; + a.rule.url + &#x22; for more information.&#x22;);
   return b;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  return !1;
+};
+})();
+axs.Audit.auditResults = function(a) {
+for (var b = new axs.AuditResults, c = 0;c &#x3c; a.length;c++) {
+  var d = a[c];
+  d.result == axs.constants.AuditResult.FAIL &#x26;&#x26; (d.rule.severity == axs.constants.Severity.SEVERE ? b.addError(axs.Audit
+.<span class="apidocCodeKeywordSpan">accessibilityErrorMessage</span>(d)) : b.addWarning(axs.Audit.accessibilityErrorMessage(d)));
+}
+return b;
+};
+goog.exportSymbol(&#x22;axs.Audit.auditResults&#x22;, axs.Audit.auditResults);
+axs.Audit.createReport = function(a, b) {
+var c;
+c = &#x22;*** Begin accessibility audit results ***\nAn accessibility audit found &#x22; + axs.Audit.auditResults(a).toString();
+...</pre></li>
     </ul>
 
 
@@ -412,7 +445,28 @@ b + (&#x22; (1 - &#x22; + Math.min(5, a.elements.length) + &#x22; of &#x22; + a.
   }
   return b;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  d.result == axs.constants.AuditResult.FAIL &#x26;&#x26; (d.rule.severity == axs.constants.Severity.SEVERE ? b.addError(axs.Audit
+.accessibilityErrorMessage(d)) : b.addWarning(axs.Audit.accessibilityErrorMessage(d)));
+}
+return b;
+};
+goog.exportSymbol(&#x22;axs.Audit.auditResults&#x22;, axs.Audit.auditResults);
+axs.Audit.createReport = function(a, b) {
+var c;
+c = &#x22;*** Begin accessibility audit results ***\nAn accessibility audit found &#x22; + axs.Audit.<span class="apidocCodeKeywordSpan
+">auditResults</span>(a).toString();
+b &#x26;&#x26; (c = c + &#x22;\nFor more information, please see &#x22; + b);
+return c + &#x22;\n*** End accessibility audit results ***&#x22;;
+};
+goog.exportSymbol(&#x22;axs.Audit.createReport&#x22;, axs.Audit.createReport);
+axs.Audit.accessibilityErrorMessage = function(a) {
+for (var b = a.rule.severity == axs.constants.Severity.SEVERE ? &#x22;Error: &#x22; : &#x22;Warning: &#x22;, b = b + (a.rule.code
+ + &#x22; (&#x22; + a.rule.heading + &#x22;) failed on the following &#x22; + (1 == a.elements.length ? &#x22;element&#x22; : &#
+x22;elements&#x22;)), b = 1 == a.elements.length ? b + &#x22;:&#x22; : b + (&#x22; (1 - &#x22; + Math.min(5, a.elements.length) + &#
+x22; of &#x22; + a.elements.length + &#x22;):&#x22;), c = Math.min(a.elements.length, 5), d = 0;d &#x3c; c;d++) {
+  var e = a.elements[d], b = b + &#x22;\n&#x22;;
+...</pre></li>
     </ul>
 
 
@@ -482,21 +536,21 @@ and set configuration.showUnsupportedRulesWarning = false.&#x22;));
   return c;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+### Enhancements:
+* Add configurable blacklist phrases and stop words to LinkWithUnclearPurpose (#99)
+* Detect and warn if we reuse the same code for more than one rule. (#133)
+* Force focus before testing visibility on focusable elements. (#65)
+* Use getDistributedNodes to get nodes distributed into shadowRoots (#128)
+* Add section to Audit Rules page for HumanLangMissing and link to it from rule (#119)
+* Reference &#x22;applied role&#x22; in axs.utils.getRoles enhancement (#130)
+* Add warning that AX_FOCUS_02 is not available from axs.Audit.<span class="apidocCodeKeywordSpan">run</span>() (#85)
 
-The simplest option is to include the generated `axs_testing.js` library on your page. After you build, you will have two versions
- of `axs_testings.js`:
-* Distribution Build: project-root/dist/js/axs_testing.js
-* Local Build (use if you make changes): project-root/tmp/build/axs_testing.js
-
-Work is underway to include the library in WebDriver and other automated testing frameworks.
-
-## The `axs.Audit.<span class="apidocCodeKeywordSpan">run</span>()` method
-
-Once you have included `axs_testing.js`, you can call `axs.Audit.run()`. This returns an object in the following form:
-
-{
-  /** @type {axs.constants.AuditResult} */
-  result,  // one of PASS, FAIL or NA
+### Bug fixes:
+* Incorrect use of nth-of-type against className in utils.getQuerySelectorText (#87)
+* AX_TEXT_01 Accessibility Audit test should probably ignore role=presentation elements (#97)
+* Fix path to audit rules in phantomjs runner (#108)
+* Label audit should fail if form fields lack a label, even with placeholder text (#81)
+* False positives for controls without labels with role=presentation (#23)
 ...</pre></li>
     </ul>
 
@@ -569,7 +623,23 @@ for each audit rule, if multiple selectors need to be ignored.
     <li>description and source-code<pre class="apidocCodePre">getIgnoreSelectors = function (a) {
   return a in this.rules_ &#x26;&#x26; &#x22;ignore&#x22; in this.rules_[a] ? this.rules_[a].ignore : [];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  e.canRun(a) &#x26;&#x26; c.push(e.run(a));
+}
+return c;
+};
+goog.exportSymbol(&#x22;axs.Audit.run&#x22;, axs.Audit.run);
+(function() {
+function a(a, c) {
+  var b = a.<span class="apidocCodeKeywordSpan">getIgnoreSelectors</span>(c.name);
+  if (0 &#x3c; b.length || a.scope) {
+    this.ignoreSelectors = b;
+  }
+  if (b = a.getRuleConfig(c.name)) {
+    this.config = b;
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -584,7 +654,23 @@ for each audit rule, if multiple selectors need to be ignored.
     <li>description and source-code<pre class="apidocCodePre">getRuleConfig = function (a) {
   return a in this.rules_ &#x26;&#x26; &#x22;config&#x22; in this.rules_[a] ? this.rules_[a].config : null;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+goog.exportSymbol(&#x22;axs.Audit.run&#x22;, axs.Audit.run);
+(function() {
+function a(a, c) {
+  var b = a.getIgnoreSelectors(c.name);
+  if (0 &#x3c; b.length || a.scope) {
+    this.ignoreSelectors = b;
+  }
+  if (b = a.<span class="apidocCodeKeywordSpan">getRuleConfig</span>(c.name)) {
+    this.config = b;
+  }
+}
+axs.Audit.collectMatchingElements = function(b, c) {
+  axs.dom.composedTreeSearch(b.walkDom ? document.documentElement : b.scope, null, {preorder:function(d, e) {
+    e.inScope || (e.inScope = d === b.scope);
+    for (var f = 0;f &#x3c; c.length;f++) {
+...</pre></li>
     </ul>
 
 
@@ -599,7 +685,23 @@ for each audit rule, if multiple selectors need to be ignored.
     <li>description and source-code<pre class="apidocCodePre">getSeverity = function (a) {
   return a in this.rules_ &#x26;&#x26; &#x22;severity&#x22; in this.rules_[a] ? this.rules_[a].severity : null;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return this.relevantElementMatcher_(a, b) &#x26;&#x26; b.inScope ? (this.relevantElements.push({element:a, flags:b}), !0) : !1;
+};
+axs.AuditRule.prototype.canRun = function(a) {
+return this.disabled || !a.withConsoleApi &#x26;&#x26; this.requiresConsoleAPI ? !1 : !0;
+};
+axs.AuditRule.Result = function(a, b) {
+var c = axs.utils.namedValues(b);
+c.severity = a.<span class="apidocCodeKeywordSpan">getSeverity</span>(b.name) || c.severity;
+this.rule = c;
+this.maxResults = a.maxResults;
+this.update(axs.constants.AuditResult.NA);
+};
+axs.AuditRule.Result.prototype.update = function(a, b) {
+if (a === axs.constants.AuditResult.FAIL) {
+  var c = this.elements || (this.elements = []);
+...</pre></li>
     </ul>
 
 
@@ -653,7 +755,23 @@ this case, running the audit on the entire page may give you spurious results in
   a in this.rules_ || (this.rules_[a] = {});
   this.rules_[a].config = b;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+a.textContent = &#x22;Click here.&#x22;
+var results = axs.Audit.run(auditConfig);
+equal(results.some(function(result) {
+  return result.rule.name == &#x27;linkWithUnclearPurpose&#x27; &#x26;&#x26;
+         result.result == &#x27;FAIL&#x27;;
+}), true, &#x27;&#x22;Click here.&#x22; should be blocked before configuration&#x27;);
+
+auditConfig.<span class="apidocCodeKeywordSpan">setRuleConfig</span>(&#x27;linkWithUnclearPurpose&#x27;,
+                          { blacklistPhrases: [&#x27;generic text&#x27;] });
+
+// Blacklist phrase is matched case-insensitively and ignoring punctuation at
+// the end.
+a.textContent = &#x22;Generic text.&#x22;
+var results = axs.Audit.run(auditConfig);
+equal(results.some(function(result) {
+...</pre></li>
     </ul>
 
 
@@ -669,7 +787,23 @@ this case, running the audit on the entire page may give you spurious results in
   a in this.rules_ || (this.rules_[a] = {});
   this.rules_[a].severity = b;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var div = document.createElement(&#x27;div&#x27;);
+div.setAttribute(&#x27;role&#x27;, &#x27;not-an-aria-role&#x27;);
+fixtures.appendChild(div);
+
+var auditConfig = new axs.AuditConfiguration();
+auditConfig.scope = fixtures;  // limit scope to just fixture element
+auditConfig.walkDom = false;  // for performance reasons ensure that the entire DOM is not traversed
+auditConfig.<span class="apidocCodeKeywordSpan">setSeverity</span>(&#x27;badAriaRole&#x27;, axs.constants.Severity.WARNING);
+var results = axs.Audit.run(auditConfig);
+for (var i = 0; i &#x3c; results.length; i++) {
+  if (results[i].rule.name != &#x27;badAriaRole&#x27;)
+    continue;
+  var result = results[i];
+  equal(result.rule.severity, axs.constants.Severity.WARNING);
+  notEqual(result.rule.severity, axs.AuditRules.getRule(&#x27;badAriaRole&#x27;).severity);
+...</pre></li>
     </ul>
 
 
@@ -690,7 +824,23 @@ this case, running the audit on the entire page may give you spurious results in
   this.errors_ = [];
   this.warnings_ = [];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Create an AuditResults object citing failures and warnings, for use in
+ * continuous builds.
+ * @param {Array.&#x3c;Object&#x3e;} results The results returned from the audit run.
+ * @return  {axs.AuditResults} a report of the audit results.
+ */
+axs.Audit.auditResults = function(results) {
+    var auditResults = new axs.<span class="apidocCodeKeywordSpan">AuditResults</span>();
+    for (var i = 0; i &#x3c; results.length; i++) {
+var result = results[i];
+if (result.result != axs.constants.AuditResult.FAIL)
+    continue;
+
+if (result.rule.severity == axs.constants.Severity.SEVERE) {
+    auditResults.addError(
+...</pre></li>
     </ul>
 
 
@@ -710,7 +860,24 @@ this case, running the audit on the entire page may give you spurious results in
     <li>description and source-code<pre class="apidocCodePre">addError = function (a) {
   &#x22;&#x22; != a &#x26;&#x26; this.errors_.push(a);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  return !1;
+};
+})();
+axs.Audit.auditResults = function(a) {
+for (var b = new axs.AuditResults, c = 0;c &#x3c; a.length;c++) {
+  var d = a[c];
+  d.result == axs.constants.AuditResult.FAIL &#x26;&#x26; (d.rule.severity == axs.constants.Severity.SEVERE ? b.<span class="apidocCodeKeywordSpan
+">addError</span>(axs.Audit.accessibilityErrorMessage(d)) : b.addWarning(axs.Audit.accessibilityErrorMessage(d)));
+}
+return b;
+};
+goog.exportSymbol(&#x22;axs.Audit.auditResults&#x22;, axs.Audit.auditResults);
+axs.Audit.createReport = function(a, b) {
+var c;
+c = &#x22;*** Begin accessibility audit results ***\nAn accessibility audit found &#x22; + axs.Audit.auditResults(a).toString();
+...</pre></li>
     </ul>
 
 
@@ -725,7 +892,24 @@ this case, running the audit on the entire page may give you spurious results in
     <li>description and source-code<pre class="apidocCodePre">addWarning = function (a) {
   &#x22;&#x22; != a &#x26;&#x26; this.warnings_.push(a);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  return !1;
+};
+})();
+axs.Audit.auditResults = function(a) {
+for (var b = new axs.AuditResults, c = 0;c &#x3c; a.length;c++) {
+  var d = a[c];
+  d.result == axs.constants.AuditResult.FAIL &#x26;&#x26; (d.rule.severity == axs.constants.Severity.SEVERE ? b.addError(axs.Audit
+.accessibilityErrorMessage(d)) : b.<span class="apidocCodeKeywordSpan">addWarning</span>(axs.Audit.accessibilityErrorMessage(d)));
+}
+return b;
+};
+goog.exportSymbol(&#x22;axs.Audit.auditResults&#x22;, axs.Audit.auditResults);
+axs.Audit.createReport = function(a, b) {
+var c;
+c = &#x22;*** Begin accessibility audit results ***\nAn accessibility audit found &#x22; + axs.Audit.auditResults(a).toString();
+...</pre></li>
     </ul>
 
 
@@ -807,7 +991,24 @@ this case, running the audit on the entire page may give you spurious results in
   }
   return a;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @projectDescription Advanced and extensible data dumping for Javascript.
+ * @version 1.0.0
+ * @author Ariel Flesler
+ * @link {http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.html}
+ */
+QUnit.jsDump = (function() {
+	function quote( str ) {
+		return &#x27;&#x22;&#x27; + str.<span class="apidocCodeKeywordSpan">toString</span>().replace( /&#x22;/g, &#x27;\\&#x22;&#x27; ) + &#
+x27;&#x22;&#x27;;
+	}
+	function literal( o ) {
+		return o + &#x22;&#x22;;
+	}
+	function join( pre, arr, post ) {
+		var s = jsDump.separator(),
+			base = jsDump.indent(),
+...</pre></li>
     </ul>
 
 
